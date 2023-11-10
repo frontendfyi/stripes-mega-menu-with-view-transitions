@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::view-transition-old(subnavcontent) {
+  animation:
+    500ms subnavcontent-leave both,
+    500ms fade-out both;
+}
+
+::view-transition-new(subnavcontent) {
+  animation:
+    500ms subnavcontent-enter both,
+    500ms fade-in both;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes subnavcontent-enter {
+  from {
+    transform: translateX(calc(var(--subnav-direction) * 40px));
+  }
+}
+
+@keyframes subnavcontent-leave {
+  to {
+    transform: translateX(calc(var(--subnav-direction) * -40px));
+  }
+}
